@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secret Birthday Letter</title>
+  <link rel="stylesheet" href="birthday.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="glass-card">
+      <h1>🎂 Secret Birthday Letter</h1>
+      <form id="birthdayForm">
+        <textarea id="letter" placeholder="Write your secret birthday letter..." required></textarea>
+        <label for="birthdayDate">Open on:</label>
+        <input type="date" id="birthdayDate" required />
+        <button type="submit">Save Letter</button>
+      </form>
+      <div id="output" class="hidden"></div>
+    </div>
+  </div>
+  <script src="birthday.js"></script>
+</body>
+</html>

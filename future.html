@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Message to Future Self</title>
+  <link rel="stylesheet" href="future.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="glass-card">
+      <h1>📝 Message to Future Self</h1>
+      <form id="messageForm">
+        <textarea id="message" placeholder="Write your message here..." required></textarea>
+        <label for="unlockDate">Unlock on:</label>
+        <input type="date" id="unlockDate" required />
+        <button type="submit">Save Message</button>
+      </form>
+      <div id="output" class="hidden"></div>
+    </div>
+  </div>
+  <script src="future.js"></script>
+</body>
+</html>
