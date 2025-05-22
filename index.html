@@ -4,10 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Time Capsule Notes</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn {
+      text-decoration: none;
+      background-color: #5c67f2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-left: 10px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #444bda;
+    }
+  </style>
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <header>
+    <a href="login.html" class="btn">Login</a>
+    <a href="signup.html" class="btn">Sign Up</a>
+  </header>
   <div class="container">
     <div class="glass-card">
       <h1>⌛ Time Capsule Notes</h1>
