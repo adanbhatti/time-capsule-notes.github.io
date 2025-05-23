@@ -7,6 +7,26 @@
   <title>Time Capsule Notes</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
+  <!-- Add Firebase scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCMq6Hveyy-dOoOA7USUjfQvOlktgz5Cgk",
+  authDomain: "time-capsulenotes.firebaseapp.com",
+  projectId: "time-capsulenotes",
+  storageBucket: "time-capsulenotes.firebasestorage.app",
+  messagingSenderId: "1096532127142",
+  appId: "1:1096532127142:web:d2d743d37a032bf4d63367"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
 </head>
 <body>
 <div class="top-buttons">
