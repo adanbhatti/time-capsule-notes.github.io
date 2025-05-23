@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>Glowing Inputs Login Form UI</title>
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-   </head>
-   <body>
-      <div class="login-form">
-         <div class="text">
-            SIGN UP
-         </div>
-         <form>
-            <div class="field">
-               <div class="fas fa-envelope"></div>
-               <input type="text" placeholder="Email or Phone">
-            </div>
-            <div class="field">
-               <div class="fas fa-lock"></div>
-               <input type="password" placeholder="Password">
-            </div>
-            <button>SIGN UP</button>
-         </form>
+<head>
+  <meta charset="utf-8">
+  <title>Signup | Time Capsule</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+
+  <!-- Your Firebase Config -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMq6Hveyy-dOoOA7USUjfQvOlktgz5Cgk",
+  authDomain: "time-capsulenotes.firebaseapp.com",
+  projectId: "time-capsulenotes",
+  storageBucket: "time-capsulenotes.firebasestorage.app",
+  messagingSenderId: "1096532127142",
+  appId: "1:1096532127142:web:d2d743d37a032bf4d63367"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
+</head>
+<body>
+  <div class="login-form">
+    <div class="text">SIGN UP</div>
+    <form onsubmit="signUp(event)">
+      <div class="field">
+        <div class="fas fa-envelope"></div>
+        <input type="email" id="signup-email" placeholder="Email" required>
       </div>
-   </body>
+      <div class="field">
+        <div class="fas fa-lock"></div>
+        <input type="password" id="signup-password" placeholder="Password" required>
+      </div>
+      <button type="submit">SIGN UP</button>
+    </form>
+  </div>
+
+  <!-- Signup Logic -->
+  <script>
+    function signUp(e) {
+      e.preventDefault(); // prevent form from submitting normally
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          alert("Signup successful!");
+          window.location.href = "notes.html"; // redirect to notes page
+        })
+        .catch((error) => {
+          alert("Signup error: " + error.message);
+        });
+    }
+  </script>
+</body>
 </html>
