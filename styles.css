@@ -104,3 +104,29 @@ button:hover{
 .link a:hover{
   text-decoration: underline;
 }
+function signUp() {
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      alert("Signup successful!");
+      console.log("User:", userCredential.user);
+    })
+    .catch((error) => {
+      alert("Signup error: " + error.message);
+    });
+}
+function logIn() {
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      alert("Login successful!");
+      console.log("Logged in as:", userCredential.user.email);
+    })
+    .catch((error) => {
+      alert("Login error: " + error.message);
+    });
+}
