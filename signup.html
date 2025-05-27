@@ -45,19 +45,19 @@
   <!-- Signup Logic -->
   <script>
     function signUp(e) {
-      e.preventDefault(); // prevent form from submitting normally
-      const email = document.getElementById("signup-email").value;
-      const password = document.getElementById("signup-password").value;
+    e.preventDefault(); // prevent form from submitting normally
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
 
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          alert("Signup successful!");
-          window.location.href = "login.html"; // redirect to notes page
-        })
-        .catch((error) => {
-          alert("Signup error: " + error.message);
-        });
-    }
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("Signup successful!");
+        window.location.href = "login.html"; // ✅ Redirect to login page
+      })
+      .catch((error) => {
+        alert("Signup error: " + error.message);
+      });
+  }
   </script>
 </body>
 </html>
