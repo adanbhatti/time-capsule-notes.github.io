@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +7,39 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
   <!-- Add Firebase scripts -->
-<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCMq6Hveyy-dOoOA7USUjfQvOlktgz5Cgk",
-  authDomain: "time-capsulenotes.firebaseapp.com",
-  projectId: "time-capsulenotes",
-  storageBucket: "time-capsulenotes.firebasestorage.app",
-  messagingSenderId: "1096532127142",
-  appId: "1:1096532127142:web:d2d743d37a032bf4d63367"
-  };
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMq6Hveyy-dOoOA7USUjfQvOlktgz5Cgk",
+      authDomain: "time-capsulenotes.firebaseapp.com",
+      projectId: "time-capsulenotes",
+      storageBucket: "time-capsulenotes.firebasestorage.app",
+      messagingSenderId: "1096532127142",
+      appId: "1:1096532127142:web:d2d743d37a032bf4d63367"
+    };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-</script>
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
 </head>
 <body>
-<div class="top-buttons">
+
+  <div id="user-info" style="display:none; margin: 10px; font-weight: 600;">
+    Logged in as: <span id="user-email"></span>
+    <button id="logout-btn" style="margin-left:10px;">Logout</button>
+  </div>
+
+  <div class="top-buttons" id="auth-buttons">
     <a href="login.html" class="btn">Login</a>
     <a href="signup.html" class="btn">Sign Up</a>
   </div>
-</div>
-    <div class="container">
+
+  <div class="container">
     <div class="glass-card">
       <h1>⌛ Time Capsule Notes</h1>
       <p>Preserve your thoughts, dreams, or secrets for the future. What would you like to create?</p>
@@ -46,5 +51,31 @@
       </div>
     </div>
   </div>
+
+  <script>
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        // User is signed in
+        document.getElementById('user-email').textContent = user.displayName || user.email;
+        document.getElementById('user-info').style.display = 'block';
+        document.getElementById('auth-buttons').style.display = 'none';
+      } else {
+        // No user signed in
+        document.getElementById('user-info').style.display = 'none';
+        document.getElementById('auth-buttons').style.display = 'block';
+      }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      auth.signOut()
+        .then(() => {
+          alert('Logged out successfully');
+        })
+        .catch(error => {
+          console.error('Logout error:', error);
+        });
+    });
+  </script>
+
 </body>
 </html>
