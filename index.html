@@ -6,6 +6,37 @@
   <title>Time Capsule Notes</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+  #user-info {
+    position: fixed !important;
+    top: 10px !important;
+    right: 10px !important;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #logout-btn {
+    cursor: pointer;
+    padding: 4px 8px;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+
+  #logout-btn:hover {
+    background-color: #c0392b;
+  }
+</style>
 
   <!-- Firebase Compat SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
